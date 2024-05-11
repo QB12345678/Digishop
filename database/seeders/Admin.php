@@ -16,11 +16,22 @@ class Admin extends Seeder
      */
     public function run()
     {
+        // User::create([
+        //     'name' => 'Admin',
+        //     'email' => 'admin@admin.com',
+        //     'email_verified_at' => now(),
+        //     'password' => '$2a$12$.W79KJ7i0iYYDMvzwrr.vuYo81SqzZBjZI5MySf4tivFnWb701mUi', // admin
+        //     'remember_token' => Str::random(10),
+        //     'is_admin' => true
+        // ]);
+        $password = '12345678'; // thay password bằng mật khẩu mới của bạn
+        $hashedPassword = bcrypt($password);
+
         User::create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
-            'password' => '$2a$12$.W79KJ7i0iYYDMvzwrr.vuYo81SqzZBjZI5MySf4tivFnWb701mUi',// admin
+            'password' => $hashedPassword,
             'remember_token' => Str::random(10),
             'is_admin' => true
         ]);

@@ -11,7 +11,8 @@
                             <div class="slider-banner">
                                 <div class="slider-img">
                                     <ul class="layout2-slide-1">
-                                        <li id="img-1"><img src="{{ asset('images/banners/banner2.jpg') }}" class="img-fluid" alt="slider"></li>
+                                        <li id="img-1"><img src="{{ asset('images/banners/banner2.jpg') }}"
+                                                class="img-fluid" alt="slider"></li>
                                     </ul>
                                 </div>
                                 <div class="slider-banner-contain">
@@ -28,7 +29,8 @@
                             <div class="slider-banner">
                                 <div class="slider-img">
                                     <ul class="layout2-slide-2">
-                                        <li id="img-2"><img src="{{ asset('images/banners/banner1.jpg') }}" class="img-fluid" alt="slider"></li>
+                                        <li id="img-2"><img src="{{ asset('images/banners/banner1.jpg') }}"
+                                                class="img-fluid" alt="slider"></li>
                                     </ul>
                                 </div>
                                 <div class="slider-banner-contain">
@@ -45,7 +47,8 @@
                             <div class="slider-banner">
                                 <div class="slider-img">
                                     <ul class="layout2-slide-3">
-                                        <li id="img-3"><img src="{{ asset('images/banners/banner3.jpg') }}" class="img-fluid" alt="slider"></li>
+                                        <li id="img-3"><img src="{{ asset('images/banners/banner3.jpg') }}"
+                                                class="img-fluid" alt="slider"></li>
                                     </ul>
                                 </div>
                                 <div class="slider-banner-contain">
@@ -62,7 +65,7 @@
                 </div>
                 <div class="col-xl-2 col-sm-3 pl-0 offer-banner">
                     <div class="offer-banner-img">
-                        <img src="{{ asset('images/banners/subbanner.jpg') }}" alt="offer-banner" class="img-fluid h-100" >
+                        <img src="{{ asset('images/banners/subbanner.jpg') }}" alt="offer-banner" class="img-fluid h-100">
                     </div>
                     <div class="banner-contain">
                         <div>
@@ -71,7 +74,7 @@
                                 <div class="discount-offer">
                                     <h1>50%</h1>
                                     <sup>off</sup>
-                                </div >
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -93,66 +96,69 @@
             <div class="row">
                 <div class="col pr-0">
                     <div class="product-slide-6 no-arrow">
-                        @foreach($products as $product)
-                            @if($product->sale > 0)
-                            <div>
-                                <div class="product-box">
-                                    <div class="product-imgbox">
-                                        <div class="product-front">
-                                            <a href="{{ Route('product.details', $product->slug) }}">
-                                              <div class="image-wrapper">
-                                                <img src="{{ asset('images/products/'.$product->image) }}" class="img-fluid" alt="{{ $product->name }}" >
-                                              </div>
-                                            </a>
-                                        </div>
-                                        <div class="product-icon icon-inline ">
-                                            <button class="tooltip-top w-100 add-to-cart cartEffect" data-id="{{ $product->id }}">
-                                                <i data-feather="shopping-cart"></i>
-                                            </button>
-
-                                        </div>
-                                        @if($product->sale > 0)
-                                            <div class="on-sale1">
-                                                on sale
-                                            </div>
-                                        @endif
-
-                                    </div>
-                                    <div class="product-detail detail-inline ">
-                                        <div class="detail-title">
-                                            <div class="detail-left">
+                        @foreach ($products as $product)
+                            @if ($product->sale > 0)
+                                <div>
+                                    <div class="product-box">
+                                        <div class="product-imgbox">
+                                            <div class="product-front">
                                                 <a href="{{ Route('product.details', $product->slug) }}">
-                                                    <h6 class="price-title">
-                                                        {{ $product->name }}
-                                                    </h6>
+                                                    <div class="image-wrapper">
+                                                        <img src="{{ asset('images/products/' . $product->image) }}"
+                                                            class="img-fluid" alt="{{ $product->name }}">
+                                                    </div>
                                                 </a>
                                             </div>
-                                            <div class="detail-right">
-                                                @if($product->sale > 0)
-                                                    <div class="check-price">
-                                                        $ {{ $product->price }}
-                                                    </div>
-                                                @endif
+                                            <div class="product-icon icon-inline ">
+                                                <button class="tooltip-top w-100 add-to-cart cartEffect"
+                                                    data-id="{{ $product->id }}">
+                                                    <i data-feather="shopping-cart"></i>
+                                                </button>
 
-                                                <div class="price">
+                                            </div>
+                                            @if ($product->sale > 0)
+                                                <div class="on-sale1">
+                                                    on sale
+                                                </div>
+                                            @endif
+
+                                        </div>
+                                        <div class="product-detail detail-inline ">
+                                            <div class="detail-title">
+                                                <div class="detail-left">
+                                                    <a href="{{ Route('product.details', $product->slug) }}">
+                                                        <h6 class="price-title clamp-text">
+                                                            {{ $product->name }}
+                                                        </h6>
+                                                    </a>
+                                                </div>
+                                                <div class="detail-right">
+                                                    @if ($product->sale > 0)
+                                                        <div class="check-price">
+                                                            $ {{ $product->price }}
+                                                        </div>
+                                                    @endif
+
                                                     <div class="price">
-                                                        @php
-                                                            $currentPrice = 0;
-                                                            if ($product->sale >0) {
-                                                                $currentPrice = $product->price - ($product->price * $product->sale) / 100;
-                                                            } else {
-                                                                $currentPrice = $product->price;
-                                                            }
-                                                        @endphp
-                                                        $ {{ $currentPrice }}
+                                                        <div class="price">
+                                                            @php
+                                                                $currentPrice = 0;
+                                                                if ($product->sale > 0) {
+                                                                    $currentPrice =
+                                                                        $product->price -
+                                                                        ($product->price * $product->sale) / 100;
+                                                                } else {
+                                                                    $currentPrice = $product->price;
+                                                                }
+                                                            @endphp
+                                                            $ {{ $currentPrice }}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
                             @endif
                         @endforeach
 
@@ -164,15 +170,15 @@
     <!--product end-->
 
     <!--tab product-->
-    <section class="section-pt-space" >
+    <section class="section-pt-space">
         <div class="tab-product-main">
             <div class="tab-prodcut-contain">
                 <ul class="tabs tab-title">
-                    @if($categories)
-                    @foreach($categories as $category)
-                        <li class="{{ $category->id == $categories[0]->id ? 'current' : '' }}"><a href="tab-{{ $category->id }}">{{$category->name}}</a></li>
-                    @endforeach
-
+                    @if ($categories)
+                        @foreach ($categories as $category)
+                            <li class="{{ $category->id == $categories[0]->id ? 'current' : '' }}"><a
+                                    href="tab-{{ $category->id }}">{{ $category->name }}</a></li>
+                        @endforeach
                     @endif
                 </ul>
             </div>
@@ -187,70 +193,77 @@
                 <div class="col pr-0">
                     <div class="theme-tab product mb--5">
                         <div class="tab-content-cls ">
-                            @foreach($categories as $category)
-                            <div id="tab-{{ $category->id }}" class="tab-content">
-                                <div class="product-slide-6 product-m no-arrow">
-                                        @foreach($products as $product)
-                                            @if($product->category_id == $category->id)
-                                            <div>
-                                            <div class="product-box">
-                                                    <div class="product-imgbox">
-                                                        <div class="product-front">
-                                                            <a href="{{ Route('product.details', $product->slug) }}">
-                                                                <div class="image-wrapper">
-                                                                    <img src="{{ asset('images/products/'.$product->image) }}" class="img-fluid" alt="{{ $product->name }}">
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-icon icon-inline">
-                                                            <button class="tooltip-top w-100 add-to-cart cartEffect" data-id="{{ $product->id }}">
-                                                                <i data-feather="shopping-cart"></i>
-                                                            </button>
-                                                        </div>
-                                                        @if($product->sale > 0)
-                                                            <div class="on-sale1">
-                                                                on sale
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="product-detail detail-inline ">
-                                                        <div class="detail-title">
-                                                            <div class="detail-left">
+                            @foreach ($categories as $category)
+                                <div id="tab-{{ $category->id }}" class="tab-content">
+                                    <div class="product-slide-6 product-m no-arrow">
+                                        @foreach ($products as $product)
+                                            @if ($product->category_id == $category->id)
+                                                <div>
+                                                    <div class="product-box">
+                                                        <div class="product-imgbox">
+                                                            <div class="product-front">
                                                                 <a href="{{ Route('product.details', $product->slug) }}">
-                                                                    <h6 class="price-title">
-                                                                        {{$product->name}}
-                                                                    </h6>
+                                                                    <div class="image-wrapper">
+                                                                        <img src="{{ asset('images/products/' . $product->image) }}"
+                                                                            class="img-fluid" alt="{{ $product->name }}">
+                                                                    </div>
                                                                 </a>
                                                             </div>
-                                                            <div class="detail-right">
-                                                                @if($product->sale > 0)
-                                                                    <div class="check-price">
-                                                                        $ {{ $product->price }}
-                                                                    </div>
-                                                                @endif
-                                                                <div class="price">
+                                                            <div class="product-icon icon-inline">
+                                                                <button class="tooltip-top w-100 add-to-cart cartEffect"
+                                                                    data-id="{{ $product->id }}">
+                                                                    <i data-feather="shopping-cart"></i>
+                                                                </button>
+                                                            </div>
+                                                            @if ($product->sale > 0)
+                                                                <div class="on-sale1">
+                                                                    on sale
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                        <div class="product-detail detail-inline ">
+                                                            <div class="detail-title">
+                                                                <div class="detail-left">
+                                                                    <a
+                                                                        href="{{ Route('product.details', $product->slug) }}">
+                                                                        <h6 class="price-title clamp-text">
+                                                                            {{ $product->name }}
+                                                                        </h6>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="detail-right">
+                                                                    @if ($product->sale > 0)
+                                                                        <div class="check-price">
+                                                                            $ {{ $product->price }}
+                                                                        </div>
+                                                                    @endif
                                                                     <div class="price">
-                                                                        @php
+                                                                        <div class="price">
+                                                                            @php
 
-                                                                        $currentPrice = 0;
-                                                                        if ($product->sale >0) {
-                                                                            $currentPrice = $product->price - ($product->price * $product->sale) / 100;
-                                                                        } else {
-                                                                            $currentPrice = $product->price;
-                                                                        }
-                                                                        @endphp
-                                                                        $ {{ $currentPrice }}
+                                                                                $currentPrice = 0;
+                                                                                if ($product->sale > 0) {
+                                                                                    $currentPrice =
+                                                                                        $product->price -
+                                                                                        ($product->price *
+                                                                                            $product->sale) /
+                                                                                            100;
+                                                                                } else {
+                                                                                    $currentPrice = $product->price;
+                                                                                }
+                                                                            @endphp
+                                                                            $ {{ $currentPrice }}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             @endif
                                         @endforeach
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -261,7 +274,7 @@
     <!-- slider tab end -->
 
 @endsection
-@section("myjs")
+@section('myjs')
     <script>
         const url = "{{ Route('addCart') }}"
         $(document).ready(function() {
@@ -272,12 +285,13 @@
                 let quantity = 1;
                 $.ajax({
                     type: 'post',
-                    url: url,   
+                    url: url,
                     data: {
                         pid: pid,
                         quantity: quantity,
                         _token: '{{ csrf_token() }}',
-                    }, success: function(data) {
+                    },
+                    success: function(data) {
                         $('.item-count-contain')[0].innerHTML = data.length;
                     }
                 });
